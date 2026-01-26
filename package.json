@@ -1,0 +1,29 @@
+{
+  "name": "csv-to-cypress-spec",
+  "version": "1.0.0",
+  "description": "Convert Jira-exported test case CSV files into Cypress E2E test skeletons",
+  "type": "module",
+  "main": "script.js",
+  "bin": {
+    "csv-to-cypress": "./script.js"
+  },
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [
+    "cypress",
+    "jira",
+    "csv",
+    "test-automation",
+    "e2e",
+    "testing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}
