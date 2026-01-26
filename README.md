@@ -15,7 +15,7 @@ It reads standard Jira test case exports (columns: **Action**, **Data**, **Expec
 - ✅ Smart filename sanitization (`"User Login Flow"` → `user-login-flow.cy.js`)  
 - ✅ Optional subfolder output (`--folder smoke-tests`)  
 - ✅ Custom test/suite name via `--name`  
-- ✅ `--include-expected` to include expected results as code comments  
+- ✅ `--include-expected-results` to include expected results as code comments  
 - ✅ `--include-data` to include data column as code comments  
 - ✅ `--dry-run` to preview output without writing files  
 - ✅ Automatically looks for files in `./inputs/` folder for convenience  
@@ -107,7 +107,7 @@ node script.js \
   --csv regression-suite.csv \
   --name "Full User Onboarding Regression" \
   --folder regression \
-  --include-expected \
+  --include-expected-results \
   --include-data \
   --out-dir cypress/e2e
 ```
@@ -133,7 +133,7 @@ node script.js --version
 | `--name` | Test/suite name (used in describe/it) | CSV filename (no extension) | No |
 | `--out-dir` | Base output directory for specs | `cypress/e2e` | No |
 | `--folder` | Subfolder inside `--out-dir` | — (flat) | No |
-| `--include-expected` | Include "Expected Result" as comments | Off | No |
+| `--include-expected-results` | Include "Expected Result" as comments | Off | No |
 | `--include-data` | Include "Data" column as comments | Off | No |
 | `--dry-run` | Preview output without writing files | Off | No |
 
@@ -148,7 +148,7 @@ node script.js --csv ../test-data/pre-approval.csv --name "Pre-Approval Flow"
 Quick with expected results and data:
 
 ```bash
-node script.js --csv checkout.csv --include-expected --include-data
+node script.js --csv checkout.csv --include-expected-results --include-data
 ```
 
 Test with example file:
@@ -195,7 +195,7 @@ describe("Full User Onboarding Regression", () => {
 
 ## Tips
 
-- Use `--include-expected` during early implementation — it keeps acceptance criteria visible in code
+- Use `--include-expected-results` during early implementation — it keeps acceptance criteria visible in code
 - After generation, replace comments with real Cypress commands (`cy.visit`, `cy.get`, `cy.type`, assertions, etc.)
 - Run the script from your project root (or adjust `--out-dir` accordingly)
 - Generated files are intentionally minimal — ready for you to fill in selectors and logic

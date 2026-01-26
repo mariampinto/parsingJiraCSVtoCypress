@@ -23,7 +23,7 @@ program
   .option('--out-dir <dir>', 'Base output directory', 'cypress/e2e')
   .option('--folder <folder>', 'Subfolder inside out-dir')
   .option('--name <name>', 'Test/suite name (defaults to CSV filename)')
-  .option('--include-expected', 'Include "Expected Result" as comments')
+  .option('--include-expected-results', 'Include "Expected Result" as comments')
   .option('--include-data', 'Include "Data" column as comments')
   .option('--dry-run', 'Show what would be generated without writing files')
   .parse(process.argv);
@@ -225,7 +225,7 @@ async function main() {
   try {
     const csvPath = await resolveInputFile(opts.csv);
     const steps = await readTestSteps(csvPath, {
-      includeExpected: !!opts.includeExpected,
+      includeExpected: !!opts.includeExpectedResults,
       includeData: !!opts.includeData,
     });
 
@@ -247,7 +247,7 @@ async function main() {
     const content = generateCypressSpec({
       name: testName,
       steps,
-      includeExpected: !!opts.includeExpected,
+      includeExpected: !!opts.includeExpectedResults,
       includeData: !!opts.includeData,
     });
 
