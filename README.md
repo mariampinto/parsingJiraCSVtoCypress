@@ -56,24 +56,29 @@ You must manually export your test cases and place the CSV file on your filesyst
 
 ```
 csv-to-cypress-spec/
-├── csv-to-cypress.js          ← the script
+├── script.js                  ← the main script
+├── package.json               ← project dependencies
 ├── inputs/                    ← ← ← place your exported CSVs here
 │   ├── login-flow.csv
 │   ├── checkout-process.csv
 │   └── regression-2025.csv
+├── cypress/
+│   └── e2e/                   ← generated spec files go here
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
 When the file is inside `./inputs/`, you can run the script using just the filename:
 
 ```bash
-node csv-to-cypress.js --csv login-flow.csv
+node script.js --csv login-flow.csv
 ```
 
 If the file is somewhere else, provide the full or relative path:
 
 ```bash
-node csv-to-cypress.js --csv ../jira-exports/BP-123-regression.csv
+node script.js --csv ../jira-exports/regression.csv
 ```
 
 **(Recommended) Add inputs/ to .gitignore** to avoid accidentally committing real test data:
