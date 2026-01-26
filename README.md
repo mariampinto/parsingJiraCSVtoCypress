@@ -61,7 +61,7 @@ csv-to-cypress-spec/
 ├── inputs/                    ← ← ← place your exported CSVs here
 │   ├── login-flow.csv
 │   ├── checkout-process.csv
-│   └── regression-2025.csv
+│   └── regression.csv
 ├── cypress/
 │   └── e2e/                   ← generated spec files go here
 ├── .gitignore
